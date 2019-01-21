@@ -244,6 +244,10 @@ class User < ApplicationRecord
     @aggregates_reblogs ||= settings.aggregate_reblogs
   end
 
+  def home_dms?
+    @home_dms ||= settings.home_dms
+  end
+
   def token_for_app(a)
     return nil if a.nil? || a.owner != self
     Doorkeeper::AccessToken

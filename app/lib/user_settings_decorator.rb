@@ -32,6 +32,7 @@ class UserSettingsDecorator
     user.settings['theme']               = theme_preference if change?('setting_theme')
     user.settings['hide_network']        = hide_network_preference if change?('setting_hide_network')
     user.settings['aggregate_reblogs']   = aggregate_reblogs_preference if change?('setting_aggregate_reblogs')
+    user.settings['home_dms']   = aggregate_reblogs_preference if change?('home_dms')
   end
 
   def merged_notification_emails
@@ -100,6 +101,10 @@ class UserSettingsDecorator
 
   def aggregate_reblogs_preference
     boolean_cast_setting 'setting_aggregate_reblogs'
+  end
+
+  def home_dms_preference
+    boolean_cast_setting 'setting_home_dms'
   end
 
   def boolean_cast_setting(key)

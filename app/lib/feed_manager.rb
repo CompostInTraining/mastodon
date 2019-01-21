@@ -92,7 +92,7 @@ class FeedManager
     end
 
     query.each do |status|
-      next if status.direct_visibility? || status.limited_visibility? || filter?(:home, status, into_account)
+        next if not (status.direct_visibility? && account.user&.home_dms?) || status.limited_visibility? || filter?(:home, status, into_account)
       add_to_feed(:home, into_account.id, status, into_account.user&.aggregates_reblogs?)
     end
 

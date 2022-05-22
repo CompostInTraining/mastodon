@@ -292,6 +292,10 @@ class User < ApplicationRecord
     @shows_application ||= settings.show_application
   end
 
+  def home_dms?
+    @home_dms ||= settings.home_dms
+  end
+
   def token_for_app(app)
     return nil if app.nil? || app.owner != self
 

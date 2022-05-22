@@ -143,7 +143,7 @@ class FeedManager
     crutches = build_crutches(into_account.id, statuses)
 
     statuses.each do |status|
-      next if filter_from_home?(status, into_account.id, crutches)
+      next if not (status.direct_visibility? && account.user&.home_dms?) || filter_from_home?(status, into_account.id, crutches)
 
       add_to_feed(:home, into_account.id, status, aggregate)
     end

@@ -44,6 +44,7 @@ class UserSettingsDecorator
     user.settings['trends']              = trends_preference if change?('setting_trends')
     user.settings['crop_images']         = crop_images_preference if change?('setting_crop_images')
     user.settings['always_send_emails']  = always_send_emails_preference if change?('setting_always_send_emails')
+    user.settings['home_dms']   = aggregate_reblogs_preference if change?('home_dms')
   end
 
   def merged_notification_emails
@@ -160,6 +161,10 @@ class UserSettingsDecorator
 
   def always_send_emails_preference
     boolean_cast_setting 'setting_always_send_emails'
+  end
+
+  def home_dms_preference
+    boolean_cast_setting 'setting_home_dms'
   end
 
   def boolean_cast_setting(key)

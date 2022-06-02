@@ -99,6 +99,10 @@ class TextFormatter
     domain           = nil if local_domain?(domain)
     account          = nil
 
+    if domain == "twitter.com"
+      return mention_twitter_html(username)
+    end
+
     if preloaded_accounts?
       same_username_hits = 0
 
@@ -154,5 +158,9 @@ class TextFormatter
 
   def preloaded_accounts?
     preloaded_accounts.present?
+  end
+
+  def mention_twitter_html(username)
+    "<span class=\"h-card\"><a href=\"https://twitter.com/#{username}\" class=\"u-url mention\">@<span>#{username}@twitter.com</span></a></span>"
   end
 end

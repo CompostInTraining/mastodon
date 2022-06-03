@@ -1,0 +1,6 @@
+.reply-indicator__content .emojione,
+.status__content .emojione {
+    width: 30px !important;
+    height: 30px !important;
+    margin: 0 !important;
+}

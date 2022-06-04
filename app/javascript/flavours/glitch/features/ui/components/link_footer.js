@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
 import { invitesEnabled, limitedFederationMode, version, repository, source_url } from 'flavours/glitch/util/initial_state';
 import { signOutLink, securityLink } from 'flavours/glitch/util/backend_links';
 import { logOut } from 'flavours/glitch/util/log_out';

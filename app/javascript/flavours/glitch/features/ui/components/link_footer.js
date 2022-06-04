@@ -37,7 +37,7 @@ class LinkFooter extends React.PureComponent {
     e.stopPropagation();
 
     this.props.onLogout();
- 
+
     return false;
   }
 

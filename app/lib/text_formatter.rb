@@ -99,7 +99,7 @@ class TextFormatter
     domain           = nil if local_domain?(domain)
     account          = nil
 
-    if domain == "twitter.com"
+    if domain == 'twitter.com'
       return mention_twitter_html(username)
     end
 

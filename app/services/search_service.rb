@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SearchService < BaseService
-
   SEARCH_ALL_VISIBLE_TOOTS = ENV['SEARCH_ALL_VISIBLE_TOOTS'] == 'true'
 
   def call(query, account, limit, options = {})

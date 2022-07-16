@@ -6,6 +6,7 @@
 
 @import 'reset';
 @import 'basics';
+@import 'branding';
 @import 'containers';
 @import 'lists';
 @import 'modal';
@@ -25,5 +26,5 @@
 @import 'dashboard';
 
 .getting-started__footer {
-    text-align: center;
+  text-align: center;
 }

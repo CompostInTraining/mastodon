@@ -22,9 +22,9 @@ eo:
     federation_hint_html: Per konto ĉe %{instance}, vi povos sekvi homojn ĉe iu ajn Mastodon nodo kaj preter.
     get_apps: Provu telefonan aplikaĵon
     hosted_on: "%{domain} estas nodo de Mastodon"
-    instance_actor_flash: |
-      Ĉi tiu konto estas virtuala ulo uzata por reprezenti la servilon mem kaj ne iun apartan uzanton.
-      Ĝi estas uzata por frataraj celoj kaj ĝi ne devus esti blokita krom se vi volas bloki la tutan servilon, tiuokaze vi devus uzi domajnan blokadon.
+    instance_actor_flash: 'Ĉi tiu konto estas virtuala aganto uzata por reprezenti la servilon mem kaj neniun individuan uzanton. Ĝi estas uzata por celoj de la federaĵo kaj devas ne esti brokita se vi ne volas bloki la tutan servilon, tiuokaze vi devas uzi blokadon de domajno.
+
+      '
     learn_more: Lerni pli
     logout_before_registering: Vi jam salutis.
     privacy_policy: Privateca politiko
@@ -36,9 +36,8 @@ eo:
       one: mesaĝo
       other: mesaĝoj
     status_count_before: Kie skribiĝis
-    tagline: Sekvi amikojn kaj trovi iujn novajn
     terms: Uzkondiĉoj
-    unavailable_content: Kontrolitaj serviloj
+    unavailable_content: Moderigitaj serviloj
     unavailable_content_description:
       domain: Servilo
       reason: 'Kialo:'
@@ -86,8 +85,8 @@ eo:
       title: Plenumi kontrolan agon al %{acct}
     account_moderation_notes:
       create: Lasi noton
-      created_msg: Kontrola noto sukcese kreita!
-      destroyed_msg: Kontrola noto sukcese detruita!
+      created_msg: Noto de mederigado sukcese kreita!
+      destroyed_msg: Noto de moderigado sukcese detruita!
     accounts:
       add_email_domain_block: Bloki retadresan domajnon
       approve: Aprobi
@@ -104,6 +103,7 @@ eo:
       confirm: Konfirmi
       confirmed: Konfirmita
       confirming: Konfirmante
+      custom: Kutimo
       delete: Forigi datumojn
       deleted: Forigita
       demote: Degradi
@@ -139,8 +139,8 @@ eo:
         all: Ĉio
         pending: Pritraktata
         suspended: Haltigita
-        title: Kontrolado
-      moderation_notes: Kontrolaj notoj
+        title: Moderigado
+      moderation_notes: Notoj de moderigado
       most_recent_activity: Lasta ago
       most_recent_ip: Lasta IP
       no_account_selected: Neniu konto estis ŝanĝita ĉar neniu estis selektita
@@ -166,7 +166,7 @@ eo:
       role: Permesoj
       roles:
         admin: Administranto
-        moderator: Kontrolanto
+        moderator: Moderigisto
         staff: Teamo
         user: Uzanto
       search: Serĉi
@@ -179,12 +179,13 @@ eo:
       sensitized: markita tikla
       shared_inbox_url: URL de kunhavigita leterkesto
       show:
-        created_reports: Kreitaj signaloj
-        targeted_reports: Signalitaj de aliaj
+        created_reports: Kreitaj raportoj
+        targeted_reports: Raporitaj de alia
       silence: Kaŝi
       silenced: Silentigita
       statuses: Mesaĝoj
       subscribe: Aboni
+      suspend: Haltigu
       suspended: Haltigita
       title: Kontoj
       unblock_email: Malbloki retpoŝtadresojn
@@ -398,6 +399,7 @@ eo:
       content_policies:
         policies:
           reject_reports: Malakcepti raportojn
+          silence: Kaŝu
         policy: Politiko
       dashboard:
         instance_accounts_dimension: Plej sekvataj kontoj
@@ -413,9 +415,10 @@ eo:
       moderation:
         all: Ĉiuj
         limited: Limigita
-        title: Kontrolo
+        title: Moderigado
       private_comment: Privata komento
       public_comment: Publika komento
+      purge: Purigu
       title: Federacio
       total_blocked_by_us: Blokitaj de ni
       total_followed_by_them: Sekvataj de ili
@@ -643,6 +646,7 @@ eo:
           tag_servers_measure: malsamaj serviloj
         not_usable: Ne povas esti uzata
         title: Tendencantaj kradvortoj
+      title: Tendencoj
     warning_presets:
       add_new: Aldoni novan
       delete: Forigi
@@ -692,7 +696,6 @@ eo:
   applications:
     created: Aplikaĵo sukcese kreita
     destroyed: Aplikaĵo sukcese forigita
-    invalid_url: La URL donita ne estas valida
     regenerate_token: Rekrei aliran ĵetonon
     token_regenerated: Alira ĵetono sukcese rekreita
     warning: Estu tre atenta kun ĉi tiu datumo. Neniam diskonigu ĝin al iu ajn!
@@ -789,8 +792,10 @@ eo:
     explore_mastodon: Esplori %{title}
   disputes:
     strikes:
+      created_at: Datita
       title_actions:
         delete_statuses: Forigo de afiŝo
+        none: Averto
   domain_validator:
     invalid_domain: ne estas valida domajna nomo
   errors:
@@ -861,6 +866,7 @@ eo:
     changes_saved_msg: Ŝanĝoj sukcese konservitaj!
     copy: Kopii
     delete: Forigi
+    none: Neniu
     order_by: Ordigi de
     save_changes: Konservi ŝanĝojn
     today: hodiaŭ
@@ -942,7 +948,7 @@ eo:
       only_redirect_html: Alie, vi povas <a href="%{path}">nur aldoni alidirekton en via profilo</a>.
       other_data: Neniu alia datumo estos movita aŭtomate
   moderation:
-    title: Kontrolado
+    title: Moderigado
   notification_mailer:
     digest:
       action: Vidi ĉiujn sciigojn
@@ -951,6 +957,9 @@ eo:
       new_followers_summary:
         one: Ankaŭ, vi ekhavis novan sekvanton en via foresto! Jej!
         other: Ankaŭ, vi ekhavis %{count} novajn sekvantojn en via foresto! Mirinde!
+      subject:
+        one: "1 nova sciigo ekde via lasta vizito 🐘"
+        other: "%{count} novaj sciigoj ekde via lasta vizito 🐘"
       title: En via foresto…
     favourite:
       body: "%{name} stelumis vian mesaĝon:"
@@ -1155,10 +1164,10 @@ eo:
         one: "%{count} voĉdono"
         other: "%{count} voĉdonoj"
       vote: Voĉdoni
-    show_more: Malfoldi
+    show_more: Montri pli
     show_newer: Montri pli novajn
     show_older: Montri pli malnovajn
-    show_thread: Montri la fadenon
+    show_thread: Montri la mesaĝaron
     sign_in_to_participate: Ensaluti por partopreni en la konversacio
     title: "%{name}: “%{quote}”"
     visibilities:
@@ -1167,20 +1176,22 @@ eo:
       private_long: Montri nur al sekvantoj
       public: Publika
       public_long: Ĉiuj povas vidi
-      unlisted: Nelistigita
+      unlisted: Ne enlistigita
       unlisted_long: Ĉiuj povas vidi, sed nelistigita en publikaj templinioj
   statuses_cleanup:
     enabled: Aŭtomate forigi malnovajn postojn
     exceptions: Esceptoj
     ignore_favs: Ignori ŝatatajn
     ignore_reblogs: Ignori akcelojn
+    keep_direct: Konservi rektajn mesaĝojn
+    keep_direct_hint: Ne forigos viajn rektajn mesagôjn
     min_age:
       '1209600': 2 semajnoj
       '15778476': 6 monatoj
       '2629746': 1 monato
       '31556952': 1 jaro
       '5259492': 2 monatoj
-      '604800': 1 week
+      '604800': 1 semajno
       '63113904': 2 jaroj
       '7889238': 3 monatoj
   stream_entries:
@@ -1199,6 +1210,7 @@ eo:
     formats:
       default: "%Y-%m-%d %H:%M"
       month: "%b %Y"
+      time: "%H:%M"
   two_factor_authentication:
     add: Aldoni
     disable: Malebligi
@@ -1219,6 +1231,9 @@ eo:
       subject: Via arkivo estas preta por elŝutado
       title: Arkiva elŝuto
     warning:
+      categories:
+        spam: Spamo
+      reason: 'Kialo:'
       subject:
         disable: Via konto %{acct} estas frostigita
         none: Averto por %{acct}
@@ -1240,7 +1255,7 @@ eo:
       review_preferences_action: Ŝanĝi preferojn
       review_preferences_step: Estu certa ke vi agordis viajn preferojn, kiel kiujn retmesaĝojn vi ŝatus ricevi, aŭ kiun dekomencan privatecan nivelon vi ŝatus ke viaj mesaĝoj havu. Se tio ne ĝenas vin, vi povas ebligi aŭtomatan ekigon de GIF-oj.
       subject: Bonvenon en Mastodon
-      tip_federated_timeline: La fratara templinio estas antaŭvido de la reto de Mastodon. Sed ĝi enhavas nur homojn, kiuj estas sekvataj de aliaj homoj de via nodo, do ĝi ne estas kompleta.
+      tip_federated_timeline: La federata templinio estas rekta vido de la reto de Mastodon. Sed ĝi inkluzivas nur personojn kiujn via najbaroj abonas, do ĝi ne estas kompleta.
       tip_following: Vi dekomence sekvas la administrantojn de via servilo. Por trovi pli da interesaj homoj, rigardu la lokan kaj frataran templiniojn.
       tip_local_timeline: La loka templinio estas antaŭvido de la homoj en %{instance}. Ĉi tiuj estas viaj apudaj najbaroj!
       tip_mobile_webapp: Se via telefona retumilo proponas al vi aldoni Mastodon al via hejma ekrano, vi povas ricevi puŝsciigojn. Tio multmaniere funkcias kiel operaciuma aplikaĵo!

@@ -36,7 +36,7 @@ zh-HK:
         current_username: 請輸入目前帳戶的使用者名稱以確認
         digest: 僅在你長時間未登錄，且收到了私信時發送
         email: 你將收到一封確認電郵
-        fields: 個人資料頁可顯示多至 4 個項目
+        fields: 個人資料頁可顯示多至 %{count} 個項目
         header: 支援 PNG, GIF 或 JPG 圖片，檔案最大為 %{size}，會縮裁成 %{dimensions}px
         inbox_url: 在你想要使用的中繼站首頁，複製它的網址
         irreversible: 文章過濾是不可還原的，即使日後過濾器被移除，也無法重新看到被它濾走的文章

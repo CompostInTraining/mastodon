@@ -39,7 +39,7 @@ ca:
         digest: Només s'envia després d'un llarg període d'inactivitat amb un resum de les mencions que has rebut en la teva absència
         discoverable: Permet que el teu compte sigui descobert per desconeguts a través de recomanacions, etiquetes i altres característiques
         email: Se t'enviarà un correu electrònic de confirmació
-        fields: Pots tenir fins a 4 elements que es mostren com a taula al teu perfil
+        fields: Pots tenir fins a %{count} elements que es mostren com a taula al teu perfil
         header: PNG, GIF o JPG de com a màxim %{size}. S'escalarà a %{dimensions}px
         inbox_url: Copia l'URL de la pàgina principal del relay que vols utilitzar
         irreversible: Les publicacions filtrades desapareixeran de manera irreversible, fins i tot si el filtre s'elimina més tard

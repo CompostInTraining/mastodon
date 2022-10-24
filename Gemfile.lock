@@ -8,7 +8,7 @@ GIT
       jwt (~> 2.0)
 
 GIT
-  remote: https://github.com/CompostInTraining/redcarpet.git
+  remote: https://github.com/prplecake/redcarpet.git
   revision: 8125b8e21327031e0401ce1070383e4ab4bce0a5
   ref: 8125b8e21327031e0401ce1070383e4ab4bce0a5
   specs:
@@ -548,6 +548,7 @@ GEM
       link_header (~> 0.0, >= 0.0.8)
     rdf-normalize (0.5.0)
       rdf (~> 3.2)
+    redcarpet (3.5.1)
     redis (4.5.1)
     redis-namespace (1.9.0)
       redis (>= 4)
@@ -829,7 +830,7 @@ DEPENDENCIES
   rails-i18n (~> 6.0)
   rails-settings-cached (~> 0.6)
   rdf-normalize (~> 0.5)
-  redcarpet!
+  redcarpet (~> 3.5)
   redis (~> 4.5)
   redis-namespace (~> 1.9)
   rexml (~> 3.2)
@@ -863,9 +864,3 @@ DEPENDENCIES
   webpacker (~> 5.4)
   webpush!
   xorcist (~> 1.1)
-
-RUBY VERSION
-   ruby 3.0.4p208
-
-BUNDLED WITH
-   2.2.33

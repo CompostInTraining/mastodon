@@ -1,5 +1,10 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
 
+User-agent: FediCrawl/1.0
+Disallow: /api/v1/directory
+Disallow: /api/v1/instance/peers
+
 User-agent: *
 Disallow: /media_proxy/
 Disallow: /interact/
+

@@ -8,7 +8,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { me, maxReactions } from '../initial_state';
 import classNames from 'classnames';
-import { PERMISSION_MANAGE_USERS, PERMISSION_MANAGE_FEDERATION } from 'mastodon/permissions';
+import { PERMISSION_MANAGE_USERS } from 'mastodon/permissions';
 import EmojiPickerDropdown from '../features/compose/containers/emoji_picker_dropdown_container';
 
 const messages = defineMessages({
@@ -39,10 +39,9 @@ const messages = defineMessages({
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
   admin_account: { id: 'status.admin_account', defaultMessage: 'Open moderation interface for @{name}' },
-  admin_status: { id: 'status.admin_status', defaultMessage: 'Open this post in the moderation interface' },
-  admin_domain: { id: 'status.admin_domain', defaultMessage: 'Open moderation interface for {domain}' },
-  copy: { id: 'status.copy', defaultMessage: 'Copy link to post' },
-  hide: { id: 'status.hide', defaultMessage: 'Hide post' },
+  admin_status: { id: 'status.admin_status', defaultMessage: 'Open this status in the moderation interface' },
+  copy: { id: 'status.copy', defaultMessage: 'Copy link to status' },
+  hide: { id: 'status.hide', defaultMessage: 'Hide toot' },
   blockDomain: { id: 'account.block_domain', defaultMessage: 'Block domain {domain}' },
   unblockDomain: { id: 'account.unblock_domain', defaultMessage: 'Unblock domain {domain}' },
   unmute: { id: 'account.unmute', defaultMessage: 'Unmute @{name}' },
@@ -242,7 +241,7 @@ class StatusActionBar extends ImmutablePureComponent {
 
   render () {
     const { status, relationship, intl, withDismiss, withCounters, scrollKey } = this.props;
-    const { signedIn, permissions } = this.context.identity;
+    const { signedIn } = this.context.identity;
 
     const anonymousAccess    = !signedIn;
     const publicStatus       = ['public', 'unlisted'].includes(status.get('visibility'));
@@ -322,16 +321,10 @@ class StatusActionBar extends ImmutablePureComponent {
         }
       }
 
-      if ((permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS || (isRemote && (permissions & PERMISSION_MANAGE_FEDERATION) === PERMISSION_MANAGE_FEDERATION)) {
+      if ((this.context.identity.permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS) {
         menu.push(null);
-        if ((permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS) {
-          menu.push({ text: intl.formatMessage(messages.admin_account, { name: account.get('username') }), href: `/admin/accounts/${status.getIn(['account', 'id'])}` });
-          menu.push({ text: intl.formatMessage(messages.admin_status), href: `/admin/accounts/${status.getIn(['account', 'id'])}/statuses/${status.get('id')}` });
-        }
-        if (isRemote && (permissions & PERMISSION_MANAGE_FEDERATION) === PERMISSION_MANAGE_FEDERATION) {
-          const domain = account.get('acct').split('@')[1];
-          menu.push({ text: intl.formatMessage(messages.admin_domain, { domain: domain }), href: `/admin/instances/${domain}` });
-        }
+        menu.push({ text: intl.formatMessage(messages.admin_account, { name: account.get('username') }), href: `/admin/accounts/${status.getIn(['account', 'id'])}` });
+        menu.push({ text: intl.formatMessage(messages.admin_status), href: `/admin/accounts/${status.getIn(['account', 'id'])}/statuses/${status.get('id')}` });
       }
     }
 

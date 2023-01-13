@@ -30,7 +30,6 @@ export default class IconButton extends React.PureComponent {
     counter: PropTypes.number,
     obfuscateCount: PropTypes.bool,
     href: PropTypes.string,
-    ariaHidden: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -40,7 +39,6 @@ export default class IconButton extends React.PureComponent {
     animate: false,
     overlay: false,
     tabIndex: '0',
-    ariaHidden: false,
   };
 
   state = {
@@ -117,7 +115,6 @@ export default class IconButton extends React.PureComponent {
       counter,
       obfuscateCount,
       href,
-      ariaHidden,
     } = this.props;
 
     const {
@@ -158,7 +155,6 @@ export default class IconButton extends React.PureComponent {
       <button
         aria-label={title}
         aria-expanded={expanded}
-        aria-hidden={ariaHidden}
         title={title}
         className={classes}
         onClick={this.handleClick}

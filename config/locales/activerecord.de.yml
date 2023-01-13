@@ -11,7 +11,7 @@ de:
         locale: Sprache
         password: Passwort
       user/account:
-        username: Profilname
+        username: Benutzername
       user/invite_request:
         text: Grund
     errors:
@@ -28,7 +28,7 @@ de:
         doorkeeper/application:
           attributes:
             website:
-              invalid: ist keine gültige Adresse
+              invalid: ist keine gültige URL
         import:
           attributes:
             data:

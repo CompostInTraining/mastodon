@@ -3,8 +3,7 @@
   cursor: default;
 }
 
-[inert],
-[inert] * {
+[inert], [inert] * {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

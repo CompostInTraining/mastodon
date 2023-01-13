@@ -15,7 +15,6 @@
 
 class Webhook < ApplicationRecord
   EVENTS = %w(
-    account.approved
     account.created
     report.created
   ).freeze

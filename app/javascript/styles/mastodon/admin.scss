@@ -254,8 +254,10 @@ $content-width: 840px;
 
       &__actions {
         display: inline-flex;
-        flex-flow: wrap;
-        gap: 5px;
+
+        & > :not(:first-child) {
+          margin-left: 5px;
+        }
       }
 
       h2 small {
@@ -1216,7 +1218,7 @@ a.name-tag,
 
     path:first-child {
       fill: rgba($highlight-text-color, 0.25) !important;
-      fill-opacity: 1 !important;
+      fill-opacity: 100% !important;
     }
 
     path:last-child {

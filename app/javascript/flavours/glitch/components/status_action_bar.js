@@ -9,7 +9,7 @@ import { me, maxReactions } from 'flavours/glitch/initial_state';
 import RelativeTimestamp from './relative_timestamp';
 import { accountAdminLink, statusAdminLink } from 'flavours/glitch/utils/backend_links';
 import classNames from 'classnames';
-import { PERMISSION_MANAGE_USERS, PERMISSION_MANAGE_FEDERATION } from 'flavours/glitch/permissions';
+import { PERMISSION_MANAGE_USERS } from 'flavours/glitch/permissions';
 import EmojiPickerDropdown from '../features/compose/containers/emoji_picker_dropdown_container';
 
 const messages = defineMessages({
@@ -39,10 +39,9 @@ const messages = defineMessages({
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
   admin_account: { id: 'status.admin_account', defaultMessage: 'Open moderation interface for @{name}' },
-  admin_status: { id: 'status.admin_status', defaultMessage: 'Open this post in the moderation interface' },
-  admin_domain: { id: 'status.admin_domain', defaultMessage: 'Open moderation interface for {domain}' },
-  copy: { id: 'status.copy', defaultMessage: 'Copy link to post' },
-  hide: { id: 'status.hide', defaultMessage: 'Hide post' },
+  admin_status: { id: 'status.admin_status', defaultMessage: 'Open this status in the moderation interface' },
+  copy: { id: 'status.copy', defaultMessage: 'Copy link to status' },
+  hide: { id: 'status.hide', defaultMessage: 'Hide toot' },
   edited: { id: 'status.edited', defaultMessage: 'Edited {date}' },
   filter: { id: 'status.filter', defaultMessage: 'Filter this post' },
   openOriginalPage: { id: 'account.open_original_page', defaultMessage: 'Open original page' },
@@ -207,7 +206,7 @@ class StatusActionBar extends ImmutablePureComponent {
 
   render () {
     const { status, intl, withDismiss, withCounters, showReplyCount, scrollKey } = this.props;
-    const { permissions } = this.context.identity;
+    const { signedIn } = this.context.identity;
 
     const anonymousAccess    = !me;
     const mutingConversation = status.get('muted');
@@ -263,19 +262,19 @@ class StatusActionBar extends ImmutablePureComponent {
       menu.push({ text: intl.formatMessage(messages.block, { name: status.getIn(['account', 'username']) }), action: this.handleBlockClick });
       menu.push({ text: intl.formatMessage(messages.report, { name: status.getIn(['account', 'username']) }), action: this.handleReport });
 
-      if (((permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS && (accountAdminLink || statusAdminLink)) || (isRemote && (permissions & PERMISSION_MANAGE_FEDERATION) === PERMISSION_MANAGE_FEDERATION)) {
+      if ((this.context.identity.permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS && (accountAdminLink || statusAdminLink)) {
         menu.push(null);
-        if ((permissions & PERMISSION_MANAGE_USERS) === PERMISSION_MANAGE_USERS) {
-          if (accountAdminLink !== undefined) {
-            menu.push({ text: intl.formatMessage(messages.admin_account, { name: status.getIn(['account', 'username']) }), href: accountAdminLink(status.getIn(['account', 'id'])) });
-          }
-          if (statusAdminLink !== undefined) {
-            menu.push({ text: intl.formatMessage(messages.admin_status), href: statusAdminLink(status.getIn(['account', 'id']), status.get('id')) });
-          }
+        if (accountAdminLink !== undefined) {
+          menu.push({
+            text: intl.formatMessage(messages.admin_account, { name: status.getIn(['account', 'username']) }),
+            href: accountAdminLink(status.getIn(['account', 'id'])),
+          });
         }
-        if (isRemote && (permissions & PERMISSION_MANAGE_FEDERATION) === PERMISSION_MANAGE_FEDERATION) {
-          const domain = status.getIn(['account', 'acct']).split('@')[1];
-          menu.push({ text: intl.formatMessage(messages.admin_domain, { domain: domain }), href: `/admin/instances/${domain}` });
+        if (statusAdminLink !== undefined) {
+          menu.push({
+            text: intl.formatMessage(messages.admin_status),
+            href: statusAdminLink(status.getIn(['account', 'id']), status.get('id')),
+          });
         }
       }
     }

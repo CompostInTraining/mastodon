@@ -46,7 +46,6 @@ export default class VideoModal extends ImmutablePureComponent {
             autoPlay={options.autoPlay}
             volume={options.defaultVolume}
             onCloseVideo={onClose}
-            autoFocus
             detailed
             alt={media.get('description')}
           />

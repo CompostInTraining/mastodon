@@ -43,7 +43,7 @@ import { initMuteModal } from 'flavours/glitch/actions/mutes';
 import { initBlockModal } from 'flavours/glitch/actions/blocks';
 import { initReport } from 'flavours/glitch/actions/reports';
 import { initBoostModal } from 'flavours/glitch/actions/boosts';
-import { makeGetStatus, makeGetPictureInPicture } from 'flavours/glitch/selectors';
+import { makeGetStatus } from 'flavours/glitch/selectors';
 import ScrollContainer from 'flavours/glitch/containers/scroll_container';
 import ColumnBackButton from 'flavours/glitch/components/column_back_button';
 import ColumnHeader from '../../components/column_header';
@@ -74,7 +74,6 @@ const messages = defineMessages({
 
 const makeMapStateToProps = () => {
   const getStatus = makeGetStatus();
-  const getPictureInPicture = makeGetPictureInPicture();
 
   const getAncestorsIds = createSelector([
     (_, { id }) => id,
@@ -132,12 +131,11 @@ const makeMapStateToProps = () => {
 
   const mapStateToProps = (state, props) => {
     const status = getStatus(state, { id: props.params.statusId });
-
-    let ancestorsIds   = Immutable.List();
+    let ancestorsIds = Immutable.List();
     let descendantsIds = Immutable.List();
 
     if (status) {
-      ancestorsIds   = getAncestorsIds(state, { id: status.get('in_reply_to_id') });
+      ancestorsIds = getAncestorsIds(state, { id: status.get('in_reply_to_id') });
       descendantsIds = getDescendantsIds(state, { id: status.get('id') });
     }
 
@@ -149,7 +147,7 @@ const makeMapStateToProps = () => {
       settings: state.get('local_settings'),
       askReplyConfirmation: state.getIn(['local_settings', 'confirm_before_clearing_draft']) && state.getIn(['compose', 'text']).trim().length !== 0,
       domain: state.getIn(['meta', 'domain']),
-      pictureInPicture: getPictureInPicture(state, { id: props.params.statusId }),
+      usingPiP: state.get('picture_in_picture').statusId === props.params.statusId,
     };
   };
 
@@ -194,10 +192,7 @@ class Status extends ImmutablePureComponent {
     askReplyConfirmation: PropTypes.bool,
     multiColumn: PropTypes.bool,
     domain: PropTypes.string.isRequired,
-    pictureInPicture: ImmutablePropTypes.contains({
-      inUse: PropTypes.bool,
-      available: PropTypes.bool,
-    }),
+    usingPiP: PropTypes.bool,
   };
 
   state = {
@@ -624,7 +619,7 @@ class Status extends ImmutablePureComponent {
 
   render () {
     let ancestors, descendants;
-    const { isLoading, status, settings, ancestorsIds, descendantsIds, intl, domain, multiColumn, pictureInPicture } = this.props;
+    const { isLoading, status, settings, ancestorsIds, descendantsIds, intl, domain, multiColumn, usingPiP } = this.props;
     const { fullscreen } = this.state;
 
     if (isLoading) {
@@ -704,7 +699,7 @@ class Status extends ImmutablePureComponent {
                   domain={domain}
                   showMedia={this.state.showMedia}
                   onToggleMediaVisibility={this.handleToggleMediaVisibility}
-                  pictureInPicture={pictureInPicture}
+                  usingPiP={usingPiP}
                 />
 
                 <ActionBar

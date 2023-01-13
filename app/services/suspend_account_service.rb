@@ -3,13 +3,10 @@
 class SuspendAccountService < BaseService
   include Payloadable
 
-  # Carry out the suspension of a recently-suspended account
-  # @param [Account] account Account to suspend
   def call(account)
-    return unless account.suspended?
-
     @account = account
 
+    suspend!
     reject_remote_follows!
     distribute_update_actor!
     unmerge_from_home_timelines!
@@ -18,6 +15,10 @@ class SuspendAccountService < BaseService
   end
 
   private
+
+  def suspend!
+    @account.suspend! unless @account.suspended?
+  end
 
   def reject_remote_follows!
     return if @account.local? || !@account.activitypub?

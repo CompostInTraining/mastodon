@@ -1,22 +1,21 @@
-# frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe Tag do
+RSpec.describe Tag, type: :model do
   describe 'validations' do
     it 'invalid with #' do
-      expect(described_class.new(name: '#hello_world')).not_to be_valid
+      expect(Tag.new(name: '#hello_world')).to_not be_valid
     end
 
     it 'invalid with .' do
-      expect(described_class.new(name: '.abcdef123')).not_to be_valid
+      expect(Tag.new(name: '.abcdef123')).to_not be_valid
     end
 
     it 'invalid with spaces' do
-      expect(described_class.new(name: 'hello world')).not_to be_valid
+      expect(Tag.new(name: 'hello world')).to_not be_valid
     end
 
     it 'valid with ａｅｓｔｈｅｔｉｃ' do
-      expect(described_class.new(name: 'ａｅｓｔｈｅｔｉｃ')).to be_valid
+      expect(Tag.new(name: 'ａｅｓｔｈｅｔｉｃ')).to be_valid
     end
   end
 
@@ -63,10 +62,6 @@ RSpec.describe Tag do
       expect(subject.match('hello #one·two·three').to_s).to eq ' #one·two·three'
     end
 
-    it 'matches ・unicode in ぼっち・ざ・ろっく correctly' do
-      expect(subject.match('testing #ぼっち・ざ・ろっく').to_s).to eq ' #ぼっち・ざ・ろっく'
-    end
-
     it 'matches ZWNJ' do
       expect(subject.match('just add #نرم‌افزار and').to_s).to eq ' #نرم‌افزار'
     end
@@ -94,46 +89,44 @@ RSpec.describe Tag do
   describe '.find_normalized' do
     it 'returns tag for a multibyte case-insensitive name' do
       upcase_string   = 'abcABCａｂｃＡＢＣやゆよ'
-      downcase_string = 'abcabcａｂｃａｂｃやゆよ'
+      downcase_string = 'abcabcａｂｃａｂｃやゆよ';
 
       tag = Fabricate(:tag, name: HashtagNormalizer.new.normalize(downcase_string))
-      expect(described_class.find_normalized(upcase_string)).to eq tag
+      expect(Tag.find_normalized(upcase_string)).to eq tag
     end
   end
 
   describe '.matches_name' do
     it 'returns tags for multibyte case-insensitive names' do
       upcase_string   = 'abcABCａｂｃＡＢＣやゆよ'
-      downcase_string = 'abcabcａｂｃａｂｃやゆよ'
+      downcase_string = 'abcabcａｂｃａｂｃやゆよ';
 
       tag = Fabricate(:tag, name: HashtagNormalizer.new.normalize(downcase_string))
-      expect(described_class.matches_name(upcase_string)).to eq [tag]
+      expect(Tag.matches_name(upcase_string)).to eq [tag]
     end
 
     it 'uses the LIKE operator' do
-      result = %q[SELECT "tags".* FROM "tags" WHERE LOWER("tags"."name") LIKE LOWER('100abc%')]
-      expect(described_class.matches_name('100%abc').to_sql).to eq result
+      expect(Tag.matches_name('100%abc').to_sql).to eq %q[SELECT "tags".* FROM "tags" WHERE LOWER("tags"."name") LIKE LOWER('100abc%')]
     end
   end
 
   describe '.matching_name' do
     it 'returns tags for multibyte case-insensitive names' do
       upcase_string   = 'abcABCａｂｃＡＢＣやゆよ'
-      downcase_string = 'abcabcａｂｃａｂｃやゆよ'
+      downcase_string = 'abcabcａｂｃａｂｃやゆよ';
 
       tag = Fabricate(:tag, name: HashtagNormalizer.new.normalize(downcase_string))
-      expect(described_class.matching_name(upcase_string)).to eq [tag]
+      expect(Tag.matching_name(upcase_string)).to eq [tag]
     end
   end
 
   describe '.find_or_create_by_names' do
-    let(:upcase_string) { 'abcABCａｂｃＡＢＣやゆよ' }
-    let(:downcase_string) { 'abcabcａｂｃａｂｃやゆよ' }
-
     it 'runs a passed block once per tag regardless of duplicates' do
-      count = 0
+      upcase_string   = 'abcABCａｂｃＡＢＣやゆよ'
+      downcase_string = 'abcabcａｂｃａｂｃやゆよ';
+      count           = 0
 
-      described_class.find_or_create_by_names([upcase_string, downcase_string]) do |_tag|
+      Tag.find_or_create_by_names([upcase_string, downcase_string]) do |tag|
         count += 1
       end
 
@@ -143,28 +136,28 @@ RSpec.describe Tag do
 
   describe '.search_for' do
     it 'finds tag records with matching names' do
-      tag = Fabricate(:tag, name: 'match')
-      _miss_tag = Fabricate(:tag, name: 'miss')
+      tag = Fabricate(:tag, name: "match")
+      _miss_tag = Fabricate(:tag, name: "miss")
 
-      results = described_class.search_for('match')
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag]
     end
 
     it 'finds tag records in case insensitive' do
-      tag = Fabricate(:tag, name: 'MATCH')
-      _miss_tag = Fabricate(:tag, name: 'miss')
+      tag = Fabricate(:tag, name: "MATCH")
+      _miss_tag = Fabricate(:tag, name: "miss")
 
-      results = described_class.search_for('match')
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag]
     end
 
     it 'finds the exact matching tag as the first item' do
-      similar_tag = Fabricate(:tag, name: 'matchlater', reviewed_at: Time.now.utc)
-      tag = Fabricate(:tag, name: 'match', reviewed_at: Time.now.utc)
+      similar_tag = Fabricate(:tag, name: "matchlater", reviewed_at: Time.now.utc)
+      tag = Fabricate(:tag, name: "match", reviewed_at: Time.now.utc)
 
-      results = described_class.search_for('match')
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag, similar_tag]
     end

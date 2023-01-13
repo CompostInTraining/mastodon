@@ -7,7 +7,7 @@ ca:
         options: Opcions
       user:
         agreement: Acord de servei
-        email: Adreça de correu electrònic
+        email: Adreça de correu-e
         locale: Idioma
         password: Contrasenya
       user/account:

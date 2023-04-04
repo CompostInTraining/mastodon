@@ -22,6 +22,7 @@ defaults: &defaults
   trends_as_landing_page: true
   trendable_by_default: false
   trending_status_cw: true
+  visible_reactions: 6
   hide_followers_count: false
   reserved_usernames:
     - admin
@@ -44,6 +45,7 @@ defaults: &defaults
   outgoing_spoilers: ''
   require_invite_text: false
   captcha_enabled: false
+  home_dms: false
   backups_retention_period: 7
 
 development:

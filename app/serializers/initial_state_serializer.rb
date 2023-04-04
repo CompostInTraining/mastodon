@@ -19,7 +19,7 @@ class InitialStateSerializer < ActiveModel::Serializer
   def publish_button_text
     ENV['PUBLISH_BUTTON_TEXT']
   end
-  
+
   def max_reactions
     StatusReactionValidator::LIMIT
   end

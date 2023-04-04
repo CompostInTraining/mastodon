@@ -123,6 +123,10 @@ module HasUserSettings
     settings['default_content_type']
   end
 
+  def setting_hide_home_dms
+    settings['hide_home_dms']
+  end
+
   def setting_hide_followers_count
     settings['hide_followers_count']
   end

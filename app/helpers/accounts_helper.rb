@@ -27,6 +27,10 @@ module AccountsHelper
     end
   end
 
+  def hide_home_dms?(account)
+    account.user&.settings['hide_home_dms']
+  end
+
   def hide_followers_count?(account)
     Setting.hide_followers_count || account.user&.settings['hide_followers_count']
   end

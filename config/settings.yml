@@ -24,6 +24,7 @@ defaults: &defaults
   trending_status_cw: true
   visible_reactions: 6
   hide_followers_count: false
+  hide_home_dms: false
   reserved_usernames:
     - admin
     - support

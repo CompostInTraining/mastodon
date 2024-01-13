@@ -1503,7 +1503,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:7, @babel/traverse@npm:^7.23.6":
+"@babel/traverse@npm:7":
+  version: 7.23.7
+  resolution: "@babel/traverse@npm:7.23.7"
+  dependencies:
+    "@babel/code-frame": "npm:^7.23.5"
+    "@babel/generator": "npm:^7.23.6"
+    "@babel/helper-environment-visitor": "npm:^7.22.20"
+    "@babel/helper-function-name": "npm:^7.23.0"
+    "@babel/helper-hoist-variables": "npm:^7.22.5"
+    "@babel/helper-split-export-declaration": "npm:^7.22.6"
+    "@babel/parser": "npm:^7.23.6"
+    "@babel/types": "npm:^7.23.6"
+    debug: "npm:^4.3.1"
+    globals: "npm:^11.1.0"
+  checksum: e32fceb4249beec2bde83968ddffe17444221c1ee5cd18c543a2feaf94e3ca83f2a4dfbc2dcca87cf226e0105973e0fe3717063a21e982a9de9945615ab3f3f5
+  languageName: node
+  linkType: hard
+
+"@babel/traverse@npm:^7.23.6":
   version: 7.23.6
   resolution: "@babel/traverse@npm:7.23.6"
   dependencies:
@@ -2323,7 +2341,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.4"
     "@types/react-helmet": "npm:^6.1.6"
     "@types/react-immutable-proptypes": "npm:^2.1.0"
-    "@types/react-motion": "npm:^0.0.39"
+    "@types/react-motion": "npm:^0.0.40"
     "@types/react-overlays": "npm:^3.1.0"
     "@types/react-router": "npm:^5.1.20"
     "@types/react-router-dom": "npm:^5.3.3"
@@ -2338,7 +2356,7 @@ __metadata:
     "@types/webpack": "npm:^4.41.33"
     "@types/yargs": "npm:^17.0.24"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
-    "@typescript-eslint/parser": "npm:^6.0.0"
+    "@typescript-eslint/parser": "npm:^6.17.0"
     arrow-key-navigation: "npm:^1.2.0"
     async-mutex: "npm:^0.4.0"
     atrament: "npm:0.2.4"
@@ -2355,7 +2373,7 @@ __metadata:
     classnames: "npm:^2.3.2"
     cocoon-js-vanilla: "npm:^1.3.0"
     color-blend: "npm:^4.0.0"
-    compression-webpack-plugin: "patch:compression-webpack-plugin@npm%3A6.1.1#~/.yarn/patches/compression-webpack-plugin-npm-6.1.1-3a2a65987e.patch"
+    compression-webpack-plugin: "npm:^6.1.2"
     core-js: "npm:^3.30.2"
     cross-env: "npm:^7.0.3"
     css-loader: "npm:^5.2.7"
@@ -2369,7 +2387,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:^3.5.5"
     eslint-plugin-formatjs: "npm:^4.10.1"
     eslint-plugin-import: "npm:~2.29.0"
-    eslint-plugin-jsdoc: "npm:^46.1.0"
+    eslint-plugin-jsdoc: "npm:^48.0.0"
     eslint-plugin-jsx-a11y: "npm:~6.8.0"
     eslint-plugin-prettier: "npm:^5.0.0"
     eslint-plugin-promise: "npm:~6.1.1"
@@ -3376,12 +3394,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-motion@npm:^0.0.39":
-  version: 0.0.39
-  resolution: "@types/react-motion@npm:0.0.39"
+"@types/react-motion@npm:^0.0.40":
+  version: 0.0.40
+  resolution: "@types/react-motion@npm:0.0.40"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 0dfcde777576b3c3289b4dbf2a5085decf71aba6d543697f4c1069d02ed3b543792a253692bd98870af04112c92469328a4fdb93988f93af2e099de8f2c9bc2e
+  checksum: 8a560051be917833fdbe051185b53aeafbe8657968ac8e073ac874b9a55c6f16e3793748b13cfb9bd6d9a3d27aba116d6f8f296ec1950f4175dc94d17c5e8470
   languageName: node
   linkType: hard
 
@@ -3690,21 +3708,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.0.0":
-  version: 6.16.0
-  resolution: "@typescript-eslint/parser@npm:6.16.0"
+"@typescript-eslint/parser@npm:^6.17.0":
+  version: 6.17.0
+  resolution: "@typescript-eslint/parser@npm:6.17.0"
   dependencies:
-    "@typescript-eslint/scope-manager": "npm:6.16.0"
-    "@typescript-eslint/types": "npm:6.16.0"
-    "@typescript-eslint/typescript-estree": "npm:6.16.0"
-    "@typescript-eslint/visitor-keys": "npm:6.16.0"
+    "@typescript-eslint/scope-manager": "npm:6.17.0"
+    "@typescript-eslint/types": "npm:6.17.0"
+    "@typescript-eslint/typescript-estree": "npm:6.17.0"
+    "@typescript-eslint/visitor-keys": "npm:6.17.0"
     debug: "npm:^4.3.4"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 9d573d14df4ec661dccaca785223a8a330d64f50a9279ff9170b1da22198ff91b9afa3ee7d3d7127c0cbc148c86831e76b33fc5b47d630799e98940ef666bfe0
+  checksum: 66b53159688083eb48259de5b4daf076f3de284ac3b4d2618bda3f7ab2d8ee27b01ae851b08e8487047e33ff3668424f17d677d66413164cb231f1519dcff82f
   languageName: node
   linkType: hard
 
@@ -3715,6 +3733,16 @@ __metadata:
     "@typescript-eslint/types": "npm:6.16.0"
     "@typescript-eslint/visitor-keys": "npm:6.16.0"
   checksum: 3b275e528d19f4f36c4acd6cb872b5f004175512dce30cef0ac7a9121bb23d21e5e0f4b62658dbfea2b15851e7fa930372696f25a6c87492f863171ab56f5364
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:6.17.0":
+  version: 6.17.0
+  resolution: "@typescript-eslint/scope-manager@npm:6.17.0"
+  dependencies:
+    "@typescript-eslint/types": "npm:6.17.0"
+    "@typescript-eslint/visitor-keys": "npm:6.17.0"
+  checksum: b7ac7d9c39515c2a1b3844577fab967bf126ec25ccf28076240748b3f42d60ab3e64131bfffee61f66251bdf2d59e50e39f5cb0bee7987c85c49140c75d26b5f
   languageName: node
   linkType: hard
 
@@ -3742,6 +3770,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/types@npm:6.17.0":
+  version: 6.17.0
+  resolution: "@typescript-eslint/types@npm:6.17.0"
+  checksum: c458d985b9ab4f369018536bcb88f0aedafb0c8c4b22ffd376e0c0c768a44e3956475c85ebeef40ae44238841c8df268893477b85873aa2621995c37e738e37e
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/typescript-estree@npm:6.16.0":
   version: 6.16.0
   resolution: "@typescript-eslint/typescript-estree@npm:6.16.0"
@@ -3758,6 +3793,25 @@ __metadata:
     typescript:
       optional: true
   checksum: c7109e90b40b3c8f1042beb7f1a7a97eeba3b6a903acd82df4947900d68bd31d04b530a190c099666c5ca4886efc162de7b42de754a44b189e41237210797d9e
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:6.17.0":
+  version: 6.17.0
+  resolution: "@typescript-eslint/typescript-estree@npm:6.17.0"
+  dependencies:
+    "@typescript-eslint/types": "npm:6.17.0"
+    "@typescript-eslint/visitor-keys": "npm:6.17.0"
+    debug: "npm:^4.3.4"
+    globby: "npm:^11.1.0"
+    is-glob: "npm:^4.0.3"
+    minimatch: "npm:9.0.3"
+    semver: "npm:^7.5.4"
+    ts-api-utils: "npm:^1.0.1"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 5a858288bb05f45a2a45b04394115826ff19f85555144bfb67dc281d4e75fc3a1e1aceb3dee68022e86b91f199d1310c15bda3100a4890004b8e474d86afad51
   languageName: node
   linkType: hard
 
@@ -3785,6 +3839,16 @@ __metadata:
     "@typescript-eslint/types": "npm:6.16.0"
     eslint-visitor-keys: "npm:^3.4.1"
   checksum: 13c4d90355e288eac432d2845e37bb2acc03dab6d8568564558c1914a9aa44352f2a7ff29d0f50e0b3e68d66cca5f27b2732af5ff193b82571b4366309842880
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:6.17.0":
+  version: 6.17.0
+  resolution: "@typescript-eslint/visitor-keys@npm:6.17.0"
+  dependencies:
+    "@typescript-eslint/types": "npm:6.17.0"
+    eslint-visitor-keys: "npm:^3.4.1"
+  checksum: 75a48f5810c6a69bc1c082b07d2b840c40895807b1b4ecf9d3ab9eb783176eeb3e7b11eb89d652e8331da79d604f82300f315ffc21cd937819197a8601b48d1d
   languageName: node
   linkType: hard
 
@@ -4731,7 +4795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-lodash@npm:3.3.4, babel-plugin-lodash@patch:babel-plugin-lodash@npm%3A3.3.4#~/.yarn/patches/babel-plugin-lodash-npm-3.3.4-c7161075b6.patch":
+"babel-plugin-lodash@npm:3.3.4":
   version: 3.3.4
   resolution: "babel-plugin-lodash@npm:3.3.4"
   dependencies:
@@ -4741,6 +4805,19 @@ __metadata:
     lodash: "npm:^4.17.10"
     require-package-name: "npm:^2.0.1"
   checksum: 1a1db624f70c1e9badd3ca112bc6819157e75768aab949c424cfabe562765d7f22cf93e5e088e820d5d5b1da7b2bd9d045cb54a5790616b65da1f84eda2ecc08
+  languageName: node
+  linkType: hard
+
+"babel-plugin-lodash@patch:babel-plugin-lodash@npm%3A3.3.4#~/.yarn/patches/babel-plugin-lodash-npm-3.3.4-c7161075b6.patch":
+  version: 3.3.4
+  resolution: "babel-plugin-lodash@patch:babel-plugin-lodash@npm%3A3.3.4#~/.yarn/patches/babel-plugin-lodash-npm-3.3.4-c7161075b6.patch::version=3.3.4&hash=201e99"
+  dependencies:
+    "@babel/helper-module-imports": "npm:^7.0.0-beta.49"
+    "@babel/types": "npm:^7.0.0-beta.49"
+    glob: "npm:^7.1.1"
+    lodash: "npm:^4.17.10"
+    require-package-name: "npm:^2.0.1"
+  checksum: 61fe073dcb381141d5cce766582750f487609bea3ad1c6725d736287f2ccd270e14d14190a7bd2700945a39acf8d58fdbee3ab7f80a7eb2a65980cf77185226c
   languageName: node
   linkType: hard
 
@@ -5747,9 +5824,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compression-webpack-plugin@npm:6.1.1":
-  version: 6.1.1
-  resolution: "compression-webpack-plugin@npm:6.1.1"
+"compression-webpack-plugin@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "compression-webpack-plugin@npm:6.1.2"
   dependencies:
     cacache: "npm:^15.0.5"
     find-cache-dir: "npm:^3.3.1"
@@ -5758,22 +5835,7 @@ __metadata:
     webpack-sources: "npm:^1.4.3"
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
-  checksum: 2f2ac6ba8f3cf48b523efc5d8e50e0172f4676f47bf5d62f2365185a6d37e96c2dc090e74f5f30ddf4be092e2400c5c7e1fb34301f3f939acf4c9944e1356525
-  languageName: node
-  linkType: hard
-
-"compression-webpack-plugin@patch:compression-webpack-plugin@npm%3A6.1.1#~/.yarn/patches/compression-webpack-plugin-npm-6.1.1-3a2a65987e.patch":
-  version: 6.1.1
-  resolution: "compression-webpack-plugin@patch:compression-webpack-plugin@npm%3A6.1.1#~/.yarn/patches/compression-webpack-plugin-npm-6.1.1-3a2a65987e.patch::version=6.1.1&hash=129d4d"
-  dependencies:
-    cacache: "npm:^15.0.5"
-    find-cache-dir: "npm:^3.3.1"
-    schema-utils: "npm:^3.0.0"
-    serialize-javascript: "npm:^5.0.1"
-    webpack-sources: "npm:^1.4.3"
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 68d130bcf7dcc3fd13a286dc57426640732593db4a2f326a4b159c7c32e856e2752e4d43e5f44dc42d07a0e477ad08c08d9aba029a958ad57e71f06deb42784f
+  checksum: 966b1417bbeaa55af8d4b7911cf4435a187adbaaff34d3e9f2ef2b7ff747877469ff965d5b653a2211eaecfd0ce8b3c834d3a8f5519aa15dd79e68bbfea0b69e
   languageName: node
   linkType: hard
 
@@ -7313,9 +7375,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^46.1.0":
-  version: 46.9.1
-  resolution: "eslint-plugin-jsdoc@npm:46.9.1"
+"eslint-plugin-jsdoc@npm:^48.0.0":
+  version: 48.0.1
+  resolution: "eslint-plugin-jsdoc@npm:48.0.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.41.0"
     are-docs-informative: "npm:^0.0.2"
@@ -7327,8 +7389,8 @@ __metadata:
     semver: "npm:^7.5.4"
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0
-  checksum: d15d68797e85bb7b6fdcfc1170653683c16ab1d62c2e9c537101e774cb3231913e2bc4781f2bb808d074adce5699e5b545e450c6801b637c6434587d226ad6ac
+    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+  checksum: 9b211cfb2e07e076dad12681cd2045c65766dd24fe9399fd0adeaf6f8785f9a4dd58608f1183195f63d3c6c91013aa1cf9edc9101580cff9cb60e1e688f456f9
   languageName: node
   linkType: hard
 

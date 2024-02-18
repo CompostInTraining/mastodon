@@ -648,7 +648,6 @@
   "status.edited_x_times": "{count, plural, one {{count}-mal} other {{count}-mal}} bearbeitet",
   "status.embed": "Beitrag per iFrame einbetten",
   "status.favourite": "Favorisieren",
-  "status.react": "Reagieren",
   "status.filter": "Beitrag filtern",
   "status.filtered": "Gefiltert",
   "status.hide": "Beitrag ausblenden",

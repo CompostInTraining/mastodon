@@ -69,6 +69,7 @@ export const hasMultiColumnPath = initialPath === '/'
  * @property {number} max_toot_chars
  * @property {number} max_feed_hashtags
  * @property {number} poll_limits
+ * @property {string} publish_button_text
  */
 
 const element = document.getElementById('initial-state');

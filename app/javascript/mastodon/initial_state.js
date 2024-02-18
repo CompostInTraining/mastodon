@@ -52,6 +52,7 @@
  * @property {boolean=} critical_updates_pending
  * @property {InitialStateMeta} meta
  * @property {number} max_toot_chars
+ * @property {string} publish_button_text
  */
 
 const element = document.getElementById('initial-state');

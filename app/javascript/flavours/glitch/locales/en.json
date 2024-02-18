@@ -147,7 +147,6 @@
   "settings.wide_view": "Wide view (Desktop mode only)",
   "settings.wide_view_hint": "Stretches columns to better fill the available space.",
   "status.collapse": "Collapse",
-  "status.react": "React",
   "status.has_audio": "Features attached audio files",
   "status.has_pictures": "Features attached pictures",
   "status.has_preview_card": "Features an attached preview card",

@@ -51,16 +51,6 @@ export const UNBOOKMARK_REQUEST = 'UNBOOKMARKED_REQUEST';
 export const UNBOOKMARK_SUCCESS = 'UNBOOKMARKED_SUCCESS';
 export const UNBOOKMARK_FAIL    = 'UNBOOKMARKED_FAIL';
 
-export const REACTION_UPDATE = 'REACTION_UPDATE';
-
-export const REACTION_ADD_REQUEST = 'REACTION_ADD_REQUEST';
-export const REACTION_ADD_SUCCESS = 'REACTION_ADD_SUCCESS';
-export const REACTION_ADD_FAIL    = 'REACTION_ADD_FAIL';
-
-export const REACTION_REMOVE_REQUEST = 'REACTION_REMOVE_REQUEST';
-export const REACTION_REMOVE_SUCCESS = 'REACTION_REMOVE_SUCCESS';
-export const REACTION_REMOVE_FAIL    = 'REACTION_REMOVE_FAIL';
-
 export function reblog(status, visibility) {
   return function (dispatch, getState) {
     dispatch(reblogRequest(status));

@@ -93,7 +93,6 @@
   "settings.deprecated_setting": "Cette option est maintenant définie par les {settings_page_link} de Mastodon",
   "settings.enable_collapsed": "Activer le repliement des posts",
   "settings.enable_collapsed_hint": "Les posts repliés ont une partie de leur contenu caché pour libérer de l'espace sur l'écran. C'est une option différente de l'avertissement de contenu",
-  "settings.enter_amount_prompt": "Entrez un montant",
   "settings.enable_content_warnings_auto_unfold": "Déplier automatiquement les avertissements de contenu",
   "settings.general": "Général",
   "settings.hicolor_privacy_icons": "Indicateurs de confidentialité en couleurs",

@@ -12,6 +12,7 @@ hu:
       last_attempt: Már csak egy próbálkozásod maradt, mielőtt a fiókodat zároljuk.
       locked: A fiókodat zároltuk.
       not_found_in_database: Helytelen %{authentication_keys} vagy jelszó.
+      omniauth_user_creation_failure: Hiba történt a fiók létrehozása során ehhez az identitáshoz.
       pending: A fiókod még engedélyezésre vár.
       timeout: A munkameneted lejárt. A folytatáshoz jelentkezz be újra.
       unauthenticated: A folytatás előtt be kell jelentkezned vagy regisztrálnod kell.
@@ -53,7 +54,7 @@ hu:
         title: Kétlépcsős hitelesítés kikapcsolva
       two_factor_enabled:
         explanation: Egy párosított TOTP appal generált tokenre lesz szükség a bejelentkezéshez.
-        subject: 'Mastodon: Kétlépcsős azonosítás engedélyezve'
+        subject: 'Mastodon: kétlépcsős hitelesítés engedélyezve'
         subtitle: A kétlépcsős hitelesítés a fiókodhoz aktiválva lett.
         title: Kétlépcsős hitelesítés engedélyezve
       two_factor_recovery_codes_changed:

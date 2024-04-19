@@ -58,7 +58,9 @@ gem 'htmlentities', '~> 4.3'
 gem 'http', '~> 5.1'
 gem 'http_accept_language', '~> 2.1'
 gem 'httplog', '~> 1.6.2'
+gem 'i18n', '1.14.1' # TODO: Remove version when resolved: https://github.com/glebm/i18n-tasks/issues/552 / https://github.com/ruby-i18n/i18n/pull/688
 gem 'idn-ruby', require: 'idn'
+gem 'inline_svg'
 gem 'kaminari', '~> 1.2'
 gem 'link_header', '~> 0.0'
 gem 'mime-types', '~> 3.5.0', require: 'mime/types/columnar'
@@ -89,7 +91,7 @@ gem 'sidekiq-bulk', '~> 0.2.0'
 gem 'simple-navigation', '~> 4.4'
 gem 'simple_form', '~> 5.2'
 gem 'stoplight', '~> 3.0.1'
-gem 'strong_migrations', '1.7.0'
+gem 'strong_migrations', '1.8.0'
 gem 'tty-prompt', '~> 0.23', require: false
 gem 'twitter-text', '~> 3.1.0'
 gem 'tzinfo-data', '~> 1.2023'
@@ -113,7 +115,7 @@ group :test do
   # RSpec helpers for email specs
   gem 'email_spec'
 
-  # Extra RSpec extenion methods and helpers for sidekiq
+  # Extra RSpec extension methods and helpers for sidekiq
   gem 'rspec-sidekiq', '~> 4.0'
 
   # Browser integration testing
@@ -125,12 +127,6 @@ group :test do
 
   # Used to mock environment variables
   gem 'climate_control'
-
-  # Generating fake data for specs
-  gem 'faker', '~> 3.2'
-
-  # Generate test objects for specs
-  gem 'fabrication', '~> 2.30'
 
   # Add back helpers functions removed in Rails 5.1
   gem 'rails-controller-testing', '~> 1.0'
@@ -182,6 +178,12 @@ end
 group :development, :test do
   # Interactive Debugging tools
   gem 'debug', '~> 1.8'
+
+  # Generate fake data values
+  gem 'faker', '~> 3.2'
+
+  # Generate factory objects
+  gem 'fabrication', '~> 2.30'
 
   # Profiling tools
   gem 'memory_profiler', require: false

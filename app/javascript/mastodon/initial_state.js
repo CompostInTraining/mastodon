@@ -38,7 +38,6 @@
  * @property {string} title
  * @property {boolean} show_trends
  * @property {boolean} trends_as_landing_page
- * @property {boolean} unfollow_modal
  * @property {boolean} use_blurhash
  * @property {boolean=} use_pending_items
  * @property {string} version
@@ -51,7 +50,6 @@
  * @property {InitialStateLanguage[]} languages
  * @property {boolean=} critical_updates_pending
  * @property {InitialStateMeta} meta
- * @property {number} max_toot_chars
  * @property {string} publish_button_text
  */
 
@@ -101,7 +99,6 @@ export const source_url = getMeta('source_url');
 export const timelinePreview = getMeta('timeline_preview');
 export const title = getMeta('title');
 export const trendsAsLanding = getMeta('trends_as_landing_page');
-export const unfollowModal = getMeta('unfollow_modal');
 export const useBlurhash = getMeta('use_blurhash');
 export const usePendingItems = getMeta('use_pending_items');
 export const version = getMeta('version');
@@ -113,7 +110,6 @@ export const statusPageUrl = getMeta('status_page_url');
 export const sso_redirect = getMeta('sso_redirect');
 
 // Glitch-soc-specific settings
-export const maxChars = (initialState && initialState.max_toot_chars) || 500;
 export const publishButtonText = (initialState && initialState.publish_button_text);  // Should be null when not set
 
 export default initialState;

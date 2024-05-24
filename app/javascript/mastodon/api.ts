@@ -2,8 +2,8 @@ import type { AxiosResponse, RawAxiosRequestHeaders } from 'axios';
 import axios from 'axios';
 import LinkHeader from 'http-link-header';
 
+import { getAccessToken } from './initial_state';
 import ready from './ready';
-import type { GetState } from './store';
 
 export const getLinks = (response: AxiosResponse) => {
   const value = response.headers.link as string | undefined;
@@ -29,25 +29,22 @@ const setCSRFHeader = () => {
 
 void ready(setCSRFHeader);
 
-const authorizationHeaderFromState = (getState?: GetState) => {
-  const accessToken =
-    getState && (getState().meta.get('access_token', '') as string);
+const authorizationTokenFromInitialState = (): RawAxiosRequestHeaders => {
+  const accessToken = getAccessToken();
 
-  if (!accessToken) {
-    return {};
-  }
+  if (!accessToken) return {};
 
   return {
     Authorization: `Bearer ${accessToken}`,
-  } as RawAxiosRequestHeaders;
+  };
 };
 
 // eslint-disable-next-line import/no-default-export
-export default function api(getState: GetState) {
+export default function api() {
   return axios.create({
     headers: {
       ...csrfHeader,
-      ...authorizationHeaderFromState(getState),
+      ...authorizationTokenFromInitialState(),
     },
 
     transformResponse: [

@@ -983,7 +983,6 @@ gd:
       delete: Sguab às
       edit_preset: Deasaich rabhadh ro-shuidhichte
       empty: Cha do mhìnich thu ro-sheataichean rabhaidhean fhathast.
-      title: Stiùirich na rabhaidhean ro-shuidhichte
     webhooks:
       add_new: Cuir puing-dheiridh ris
       delete: Sguab às
@@ -1832,6 +1831,7 @@ gd:
     contrast: Mastodon (iomsgaradh àrd)
     default: Mastodon (dorcha)
     mastodon-light: Mastodon (soilleir)
+    system: Fèin-obrachail (cleachd ùrlar an t-siostaim)
   time:
     formats:
       default: "%d %b %Y, %H:%M"

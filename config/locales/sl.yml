@@ -299,6 +299,7 @@ sl:
       filter_by_action: Filtriraj po dejanjih
       filter_by_user: Filtriraj po uporabnikih
       title: Dnevnik revizije
+      unavailable_instance: "(ime domene ni na voljo)"
     announcements:
       destroyed_msg: Obvestilo je bilo uspešno izbrisano!
       edit:
@@ -985,7 +986,7 @@ sl:
       delete: Izbriši
       edit_preset: Uredi prednastavitev opozoril
       empty: Zaenkrat še niste določili nobenih opozorilnih prednastavitev.
-      title: Upravljaj prednastavitev opozoril
+      title: Pred-nastavitve opozoril
     webhooks:
       add_new: Dodaj končno točko
       delete: Izbriši

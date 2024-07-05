@@ -1,4 +1,4 @@
-import type { AxiosResponse, RawAxiosRequestHeaders } from 'axios';
+import type { AxiosResponse, Method, RawAxiosRequestHeaders } from 'axios';
 import axios from 'axios';
 import LinkHeader from 'http-link-header';
 
@@ -40,11 +40,11 @@ const authorizationTokenFromInitialState = (): RawAxiosRequestHeaders => {
 };
 
 // eslint-disable-next-line import/no-default-export
-export default function api() {
+export default function api(withAuthorization = true) {
   return axios.create({
     headers: {
       ...csrfHeader,
-      ...authorizationTokenFromInitialState(),
+      ...(withAuthorization ? authorizationTokenFromInitialState() : {}),
     },
 
     transformResponse: [
@@ -57,4 +57,51 @@ export default function api() {
       },
     ],
   });
+}
+
+type RequestParamsOrData = Record<string, unknown>;
+
+export async function apiRequest<ApiResponse = unknown>(
+  method: Method,
+  url: string,
+  args: {
+    params?: RequestParamsOrData;
+    data?: RequestParamsOrData;
+  } = {},
+) {
+  const { data } = await api().request<ApiResponse>({
+    method,
+    url: '/api/' + url,
+    ...args,
+  });
+
+  return data;
+}
+
+export async function apiRequestGet<ApiResponse = unknown>(
+  url: string,
+  params?: RequestParamsOrData,
+) {
+  return apiRequest<ApiResponse>('GET', url, { params });
+}
+
+export async function apiRequestPost<ApiResponse = unknown>(
+  url: string,
+  data?: RequestParamsOrData,
+) {
+  return apiRequest<ApiResponse>('POST', url, { data });
+}
+
+export async function apiRequestPut<ApiResponse = unknown>(
+  url: string,
+  data?: RequestParamsOrData,
+) {
+  return apiRequest<ApiResponse>('PUT', url, { data });
+}
+
+export async function apiRequestDelete<ApiResponse = unknown>(
+  url: string,
+  params?: RequestParamsOrData,
+) {
+  return apiRequest<ApiResponse>('DELETE', url, { params });
 }

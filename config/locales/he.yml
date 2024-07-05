@@ -299,6 +299,7 @@ he:
       filter_by_action: סינון לפי פעולה
       filter_by_user: סינון לפי משתמש
       title: ביקורת יומן
+      unavailable_instance: "(שם מתחם לא זמין)"
     announcements:
       destroyed_msg: הכרזה נמחקה בהצלחה!
       edit:
@@ -985,7 +986,7 @@ he:
       delete: למחוק
       edit_preset: ערוך/י טקסט מוכן מראש לאזהרה
       empty: לא הגדרת עדיין שום טקסט מוכן מראש לאזהרה.
-      title: ניהול טקסטים מוכנים מראש לאזהרות
+      title: תצורת אזהרות
     webhooks:
       add_new: הוספת נקודת קצה
       delete: מחיקה

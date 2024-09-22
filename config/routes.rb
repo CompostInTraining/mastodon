@@ -135,7 +135,6 @@ Rails.application.routes.draw do
     scope module: :activitypub do
       resource :outbox, only: [:show]
       resource :inbox, only: [:create]
-      resource :claim, only: [:create]
       resources :collections, only: [:show]
       resource :followers_synchronization, only: [:show]
     end
@@ -143,7 +142,11 @@ Rails.application.routes.draw do
 
   resource :inbox, only: [:create], module: :activitypub
 
-  get '/:encoded_at(*path)', to: redirect('/@%{path}'), constraints: { encoded_at: /%40/ }
+  constraints(encoded_path: /%40.*/) do
+    get '/:encoded_path', to: redirect { |params|
+      "/#{params[:encoded_path].gsub('%40', '@')}"
+    }
+  end
 
   constraints(username: %r{[^@/.]+}) do
     with_options to: 'accounts#show' do
